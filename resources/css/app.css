@@ -1,0 +1,668 @@
+@import 'tailwindcss';
+
+@import 'tw-animate-css';
+
+/* Vegefoods Styles - These will be loaded via link tags in the component */
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans:
+        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.87 0 0);
+    --chart-1: oklch(0.646 0.222 41.116);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.398 0.07 227.392);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.87 0 0);
+}
+
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.145 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.145 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.985 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.396 0.141 25.723);
+    --destructive-foreground: oklch(0.637 0.237 25.331);
+    --border: oklch(0.269 0 0);
+    --input: oklch(0.269 0 0);
+    --ring: oklch(0.439 0 0);
+    --chart-1: oklch(0.488 0.243 264.376);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.769 0.188 70.08);
+    --chart-4: oklch(0.627 0.265 303.9);
+    --chart-5: oklch(0.645 0.246 16.439);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.985 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(0.269 0 0);
+    --sidebar-ring: oklch(0.439 0 0);
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* Ensure navigation is visible on desktop */
+@media (min-width: 992px) {
+    .navbar-collapse {
+        display: flex !important;
+    }
+}
+
+/* Force visibility for all content sections */
+.goto-here section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.goto-here .ftco-animate {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Ensure background colors are set */
+.goto-here .ftco-section {
+    background-color: #ffffff !important;
+}
+
+.goto-here .ftco-cart {
+    background-color: #ffffff !important;
+}
+
+.goto-here .ftco-degree-bg {
+    background-color: #f8f9fa !important;
+}
+
+/* Ensure images are visible */
+.goto-here img {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* Vegefoods Text Visibility - Override Tailwind to ensure text is visible */
+.goto-here {
+    color: #212529 !important;
+}
+
+.goto-here body {
+    color: gray !important;
+}
+
+.goto-here h1,
+.goto-here h2,
+.goto-here h3,
+.goto-here h4,
+.goto-here h5,
+.goto-here h6,
+.goto-here .h1,
+.goto-here .h2,
+.goto-here .h3,
+.goto-here .h4,
+.goto-here .h5 {
+    color: #000000 !important;
+}
+
+.goto-here p {
+    color: gray !important;
+}
+
+.goto-here .text {
+    color: inherit !important;
+}
+
+.goto-here .heading {
+    color: #000000 !important;
+}
+
+.goto-here .subheading {
+    color: inherit !important;
+}
+
+.goto-here .ftco-footer {
+    color: #000000 !important;
+}
+
+.goto-here .ftco-footer a {
+    color: #000000 !important;
+}
+
+.goto-here .ftco-footer-widget ul li a {
+    color: #000000 !important;
+}
+
+/* Ensure all text in sections is visible */
+.goto-here .ftco-section {
+    color: gray !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+}
+
+.goto-here .ftco-section h1,
+.goto-here .ftco-section h2,
+.goto-here .ftco-section h3,
+.goto-here .ftco-section h4,
+.goto-here .ftco-section h5,
+.goto-here .ftco-section h6 {
+    color: #000000 !important;
+}
+
+.goto-here .ftco-section p {
+    color: gray !important;
+}
+
+/* Ensure all containers and rows are visible */
+.goto-here .container {
+    display: block !important;
+    visibility: visible !important;
+}
+
+.goto-here .row {
+    display: flex !important;
+    visibility: visible !important;
+    flex-wrap: wrap !important;
+}
+
+/* Ensure products are visible */
+.goto-here .product {
+    display: block !important;
+    visibility: visible !important;
+}
+
+.goto-here .product img {
+    display: block !important;
+    visibility: visible !important;
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* Ensure tables are visible */
+.goto-here table {
+    display: table !important;
+    visibility: visible !important;
+    width: 100% !important;
+}
+
+.goto-here table thead {
+    display: table-header-group !important;
+}
+
+.goto-here table tbody {
+    display: table-row-group !important;
+}
+
+.goto-here table tr {
+    display: table-row !important;
+}
+
+.goto-here table td,
+.goto-here table th {
+    display: table-cell !important;
+}
+
+/* Ensure blog entries are visible */
+.goto-here .blog-entry {
+    display: flex !important;
+    visibility: visible !important;
+}
+
+.goto-here .block-20 {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Ensure forms are visible */
+.goto-here form {
+    display: block !important;
+    visibility: visible !important;
+}
+
+.goto-here .form-group {
+    display: block !important;
+    visibility: visible !important;
+}
+
+.goto-here input,
+.goto-here textarea,
+.goto-here select {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Product text */
+.goto-here .product h3 {
+    color: #000000 !important;
+}
+
+.goto-here .product .price {
+    color: #000000 !important;
+}
+
+/* Breadcrumb text */
+.goto-here .breadcrumbs {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.goto-here .breadcrumbs a {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.goto-here .bread {
+    color: #ffffff !important;
+}
+
+/* Hero slider text */
+.goto-here .slider-text h1 {
+    color: #ffffff !important;
+}
+
+.goto-here .slider-text h2 {
+    color: #ffffff !important;
+}
+
+/* Testimonial text */
+.goto-here .testimony-wrap .text {
+    color: #000000 !important;
+}
+
+.goto-here .testimony-wrap .name {
+    color: #000000 !important;
+}
+
+.goto-here .testimony-wrap .position {
+    color: #82ae46 !important;
+}
+
+/* Category text */
+.goto-here .category-wrap h2 {
+    color: #ffffff !important;
+}
+
+.goto-here .category-wrap h2 a {
+    color: #ffffff !important;
+}
+
+.goto-here .category-wrap-2 h2 {
+    color: #ffffff !important;
+}
+
+.goto-here .category-wrap-2 p {
+    color: #ffffff !important;
+}
+
+/* Deal of the day text */
+.goto-here .deal-of-the-day h2 {
+    color: #ffffff !important;
+}
+
+.goto-here .deal-of-the-day h3 {
+    color: #ffffff !important;
+}
+
+.goto-here .deal-of-the-day p {
+    color: #ffffff !important;
+}
+
+.goto-here .deal-of-the-day .price {
+    color: #ffffff !important;
+}
+
+.goto-here .deal-of-the-day .subheading {
+    color: #ffffff !important;
+}
+
+/* Services text */
+.goto-here .services .heading {
+    color: #000000 !important;
+}
+
+.goto-here .services span {
+    color: gray !important;
+}
+
+/* Blog text */
+.goto-here .blog-entry .heading {
+    color: #000000 !important;
+}
+
+.goto-here .blog-entry p {
+    color: gray !important;
+}
+
+/* Contact form text */
+.goto-here .contact-form input,
+.goto-here .contact-form textarea {
+    color: #000000 !important;
+}
+
+.goto-here .info p {
+    color: #000000 !important;
+}
+
+.goto-here .info a {
+    color: #82ae46 !important;
+}
+
+/* Cart and checkout text */
+.goto-here .cart-list th {
+    color: #000000 !important;
+}
+
+.goto-here .cart-list td {
+    color: #000000 !important;
+}
+
+.goto-here .cart-total {
+    color: #000000 !important;
+}
+
+.goto-here .billing-form label {
+    color: #000000 !important;
+}
+
+/* About page text */
+.goto-here .wrap-about h2 {
+    color: #000000 !important;
+}
+
+.goto-here .wrap-about p {
+    color: gray !important;
+}
+
+/* Counter text */
+.goto-here .block-18 .text {
+    color: #ffffff !important;
+}
+
+.goto-here .block-18 .number {
+    color: #ffffff !important;
+}
+
+.goto-here .block-18 span {
+    color: #ffffff !important;
+}
+
+/* Testimony section text */
+.goto-here .testimony-section .heading-section h2 {
+    color: #000000 !important;
+}
+
+.goto-here .testimony-section .heading-section p {
+    color: #000000 !important;
+}
+
+.goto-here .testimony-section .heading-section .subheading {
+    color: #82ae46 !important;
+}
+
+.goto-here .testimony-section .testimony-wrap .text {
+    color: #000000 !important;
+}
+
+.goto-here .testimony-section .testimony-wrap .name {
+    color: #000000 !important;
+}
+
+.goto-here .testimony-section .testimony-wrap .position {
+    color: #82ae46 !important;
+}
+
+/* Subscription section text */
+.goto-here .subscribe-form .form-control {
+    color: #000000 !important;
+}
+
+.goto-here .subscribe-form .form-control::placeholder {
+    color: #999999 !important;
+}
+
+/* Services section text */
+.goto-here .ftco-services .media-body h3.heading {
+    color: #000000 !important;
+}
+
+.goto-here .ftco-services .media-body span {
+    color: #000000 !important;
+}
+
+/* About page section backgrounds */
+.goto-here .ftco-section.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.goto-here .ftco-counter.img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.goto-here .ftco-counter.img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.goto-here .ftco-counter.img > .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Heading section text */
+.goto-here .heading-section h2 {
+    color: #000000 !important;
+}
+
+.goto-here .heading-section p {
+    color: #000000 !important;
+}
+
+.goto-here .heading-section .subheading {
+    color: #82ae46 !important;
+}
+
+.goto-here .block-18 span {
+    color: #ffffff !important;
+}
+
+/* ================================== */
+/* Animation & Performance Settings   */
+/* ================================== */
+
+/* Ensure animations are visible before JS loads */
+.ftco-animate {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Owl Carousel GPU acceleration */
+.owl-carousel .owl-item {
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.owl-carousel .owl-stage-outer {
+    overflow: hidden;
+}
+
+/* Parallax performance optimization */
+.hero,
+.hero-wrap,
+.slider-item {
+    will-change: auto;
+    backface-visibility: hidden;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .ftco-animate,
+    .ftco-animated,
+    .owl-carousel .animated,
+    [data-aos] {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    #ftco-loader {
+        display: none !important;
+    }
+}
+
+/* Ensure smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevent layout shifts */
+.hero,
+.hero-wrap {
+    min-height: 500px;
+}
+
+.slider-item {
+    min-height: 500px;
+}
+
+/* Image optimization */
+.goto-here img {
+    content-visibility: auto;
+}
+
+/* Timer styling - ensure visible immediately */
+#timer {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+#timer .time {
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+}
+
+#timer .time strong {
+    display: block;
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+#timer .time span {
+    display: block;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+}
