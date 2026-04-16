@@ -51,39 +51,33 @@ export default function VegefoodsNavigation({ activePage = 'home' }: NavigationP
 
     return (
         <>
-            {/* Top Bar */}
-            <div className="py-1 bg-primary">
-                <div className="container">
-                    <div className="row no-gutters d-flex align-items-start align-items-center px-md-0">
-                        <div className="col-lg-12 d-block">
-                            <div className="row d-flex">
-                                <div className="col-md pr-4 d-flex topper align-items-center">
-                                    <div className="icon mr-2 d-flex justify-content-center align-items-center">
-                                        <span className="icon-phone2"></span>
-                                    </div>
-                                    <span className="text">+ 1235 2355 98</span>
-                                </div>
-                                <div className="col-md pr-4 d-flex topper align-items-center">
-                                    <div className="icon mr-2 d-flex justify-content-center align-items-center">
-                                        <span className="icon-paper-plane"></span>
-                                    </div>
-                                    <span className="text">youremail@email.com</span>
-                                </div>
-                                <div className="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
-                                    <span className="text">3-5 Business days delivery &amp; Free Returns</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             {/* Navigation */}
-            <nav className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-                <div className="container">
-                    <Link href={home().url} className="navbar-brand">
+            <nav
+                className="navbar navbar-expand-lg ftco_navbar ftco-navbar-light"
+                id="ftco-navbar"
+                style={{ backgroundColor: '#fff', borderBottom: '1px solid #e8e8e8', padding: '0' }}
+            >
+                <div className="container" style={{ display: 'flex', flexWrap: 'nowrap', alignItems: 'center', height: '60px', padding: '0 20px' }}>
+                    {/* Brand */}
+                    <Link
+                        href={home().url}
+                        className="navbar-brand"
+                        style={{
+                            color: '#82ae46',
+                            fontWeight: '700',
+                            fontSize: '1.4rem',
+                            letterSpacing: '0.05em',
+                            textTransform: 'uppercase',
+                            lineHeight: '60px',
+                            marginRight: 'auto',
+                            flexShrink: 0,
+                            padding: '0',
+                        }}
+                    >
                         Smart LocalMart
                     </Link>
+
+                    {/* Mobile toggler */}
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -91,74 +85,49 @@ export default function VegefoodsNavigation({ activePage = 'home' }: NavigationP
                         aria-controls="ftco-nav"
                         aria-expanded={isMenuOpen}
                         aria-label="Toggle navigation"
+                        style={{ border: '1px solid #ccc', padding: '4px 8px', display: 'none' }}
                     >
-                        <span className="oi oi-menu"></span> Menu
+                        <span style={{ fontSize: '1.2rem', color: '#555' }}>&#9776;</span>
                     </button>
 
-                    <div 
-                        className={`navbar-collapse ${isMenuOpen ? 'show' : ''}`} 
+                    <div
+                        className={`navbar-collapse ${isMenuOpen ? 'show' : ''}`}
                         id="ftco-nav"
+                        style={{ flexGrow: 0 }}
                     >
-                        <ul className="navbar-nav ml-auto">
+                        <ul className="navbar-nav" style={{ alignItems: 'center', flexWrap: 'nowrap', margin: 0 }}>
                             <li className={`nav-item ${activePage === 'home' ? 'active' : ''}`}>
-                                <Link href={home().url} className="nav-link">
-                                    Home
-                                </Link>
+                                <Link href={home().url} className="nav-link">Home</Link>
                             </li>
                             <li className={`nav-item dropdown ${activePage.startsWith('shop') ? 'active' : ''}`}>
-                                <a
-                                    className="nav-link dropdown-toggle"
-                                    href="#"
-                                    id="dropdown04"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                >
+                                <a className="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Shop
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="dropdown04">
-                                    <Link href="/shop" className="dropdown-item">
-                                        Shop
-                                    </Link>
-                                    <Link href="/wishlist" className="dropdown-item">
-                                        Wishlist
-                                    </Link>
-                                    <Link href="/product-single" className="dropdown-item">
-                                        Single Product
-                                    </Link>
-                                    <Link href="/cart" className="dropdown-item">
-                                        Cart
-                                    </Link>
-                                    <Link href="/checkout" className="dropdown-item">
-                                        Checkout
-                                    </Link>
+                                    <Link href="/shop" className="dropdown-item">Shop</Link>
+                                    <Link href="/wishlist" className="dropdown-item">Wishlist</Link>
+                                    <Link href="/product-single" className="dropdown-item">Single Product</Link>
+                                    <Link href="/cart" className="dropdown-item">Cart</Link>
+                                    <Link href="/checkout" className="dropdown-item">Checkout</Link>
                                 </div>
                             </li>
                             <li className={`nav-item ${activePage === 'about' ? 'active' : ''}`}>
-                                <Link href="/about" className="nav-link">
-                                    About
-                                </Link>
+                                <Link href="/about" className="nav-link">About</Link>
                             </li>
                             <li className={`nav-item ${activePage === 'blog' ? 'active' : ''}`}>
-                                <Link href="/blog" className="nav-link">
-                                    Blog
-                                </Link>
+                                <Link href="/blog" className="nav-link">Blog</Link>
                             </li>
                             <li className={`nav-item ${activePage === 'contact' ? 'active' : ''}`}>
-                                <Link href="/contact" className="nav-link">
-                                    Contact
-                                </Link>
+                                <Link href="/contact" className="nav-link">Contact</Link>
                             </li>
                             {isAuthenticated ? (
                                 <>
                                     <li className="nav-item">
-                                        <Link href={dashboard().url} className="nav-link">
-                                            Dashboard
-                                        </Link>
+                                        <Link href={dashboard().url} className="nav-link">Dashboard</Link>
                                     </li>
                                     <li className="nav-item">
                                         <Form method="post" action={logout().url}>
-                                            <button type="submit" className="nav-link btn btn-link" style={{ border: 'none', background: 'none', padding: 0 }}>
+                                            <button type="submit" className="nav-link btn btn-link" style={{ border: 'none', background: 'none' }}>
                                                 Logout
                                             </button>
                                         </Form>
@@ -167,20 +136,18 @@ export default function VegefoodsNavigation({ activePage = 'home' }: NavigationP
                             ) : (
                                 <>
                                     <li className="nav-item">
-                                        <Link href={login().url} className="nav-link">
-                                            Login
-                                        </Link>
+                                        <Link href={login().url} className="nav-link">Login</Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link href={register().url} className="nav-link">
-                                            Register
-                                        </Link>
+                                        <Link href={register().url} className="nav-link">Register</Link>
                                     </li>
                                 </>
                             )}
-                            <li className="nav-item cta cta-colored">
-                                <Link href="/cart" className="nav-link">
-                                    <span className="icon-shopping_cart"></span>[0]
+                            {/* Cart */}
+                            <li className="nav-item">
+                                <Link href="/cart" className="nav-link" style={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
+                                    <span className="icon-shopping_cart"></span>
+                                    <span>[0]</span>
                                 </Link>
                             </li>
                         </ul>

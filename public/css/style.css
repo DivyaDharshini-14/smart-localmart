@@ -10011,3 +10011,69 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+
+/* ============================================
+   SMART LOCALMART NAVBAR OVERRIDES
+   ============================================ */
+
+#ftco-navbar {
+    background: #fff !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+    padding: 0 !important;
+    min-height: 60px !important;
+}
+
+#ftco-navbar .container {
+    height: 60px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}
+
+#ftco-navbar .navbar-brand {
+    color: #82ae46 !important;
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    padding: 0 !important;
+    margin-right: auto !important;
+    line-height: 60px !important;
+}
+
+#ftco-navbar .navbar-brand:hover,
+#ftco-navbar .navbar-brand:focus {
+    color: #82ae46 !important;
+}
+
+#ftco-navbar .navbar-nav > .nav-item > .nav-link {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    color: #000 !important;
+    padding: 0 18px !important;
+    line-height: 60px !important;
+}
+
+#ftco-navbar .navbar-nav > .nav-item > .nav-link:hover {
+    color: #82ae46 !important;
+}
+
+#ftco-navbar .navbar-nav > .nav-item.active > .nav-link {
+    color: #82ae46 !important;
+}
+
+/* Cart link — plain, no button */
+#ftco-navbar .navbar-nav > .nav-item:last-child > .nav-link {
+    background: none !important;
+    color: #000 !important;
+    padding: 0 10px !important;
+    border-radius: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+}
